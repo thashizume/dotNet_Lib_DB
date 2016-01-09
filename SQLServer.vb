@@ -7,7 +7,7 @@
     Private _useTransaction As Boolean = False
 
     Public Sub setConnectionString(fingerPrint As String, connectionString As String, Optional useTransaction As Boolean = False)
-        Me._connectionString = (New Polestar.Security.Cryptography).Decrypt(connectionString, fingerPrint)
+        Me._connectionString = (New jp.polestar.security.Cryptography).Decrypt(connectionString, fingerPrint)
         Me._useTransaction = useTransaction
         Me.Open()
 
@@ -87,7 +87,7 @@
         Catch ex As Exception
 
         Finally
-            Me._transaction.Dispose()
+            'Me._transaction.Dispose()
             Me._connection.Close()
             Me._connection.Dispose()
 
